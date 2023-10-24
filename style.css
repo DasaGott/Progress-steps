@@ -6,10 +6,52 @@
 
 body {
   font-family: "Roboto" sans-serif;
+  background-color: #ffe9e3;
   margin: 0;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  max-width: 100%;
+  width: 250px;
+  position: relative;
+}
+.progress-container::before {
+  /*when we use before or after, we have to use content empty*/
+  content: "";
+  background-color: #dbd8e3;
+  /*this represents the line behind the numbers. before any change happens*/
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 2px;
+  z-index: -1;
+}
+
+.progress {
+  background-color: #430f58;
+  width: 0%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 2px;
+  z-index: -1;
+  transition: all 200ms ease-in-out;
+}
+
+.buttons {
+  display: flex;
 }
