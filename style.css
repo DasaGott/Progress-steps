@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&family=Poppins:ital,wght@0,400;0,900;1,400;1,900&family=Roboto:wght@100;400;900&display=swap");
-
+:root {
+  --active-border-color: #430f58;
+  --inactive-border-color: #dbd8e3;
+}
 * {
   box-sizing: border-box;
 }
@@ -29,7 +32,7 @@ body {
 .progress-container::before {
   /*when we use before or after, we have to use content empty*/
   content: "";
-  background-color: #dbd8e3;
+  background-color: var(--inactive-border-color);
   /*this represents the line behind the numbers. before any change happens*/
   width: 100%;
   position: absolute;
@@ -41,7 +44,7 @@ body {
 }
 
 .progress {
-  background-color: #430f58;
+  background-color: var(--active-border-color);
   width: 0%;
   position: absolute;
   top: 50%;
@@ -52,6 +55,45 @@ body {
   transition: all 200ms ease-in-out;
 }
 
-.buttons {
+.circle {
+  background-color: #fff;
+  border-radius: 50%;
+  color: var(--active-border-color);
+  height: 30px;
+  width: 30px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--inactive-border-color);
+  transition: all 200ms ease-in-out;
+}
+
+.circle.active {
+  border-color: var(--active-border-color);
+  background-color: #6643b5;
+  color: #fff;
+}
+.btn {
+  background-color: #6643b5;
+  padding: 8px 25px;
+  border-radius: 5px;
+  color: #fff;
+  border: 0;
+  margin: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.btn:active {
+  transform: scale(0.95);
+  transition: scale 0.5s ease-in;
+}
+.btn:focus {
+  outline: none;
+}
+
+.btn:disabled {
+  background-color: var(--inactive-border-color);
+  cursor: not-allowed;
 }
